@@ -12,23 +12,28 @@ import * as serviceWorker from './serviceWorker';
 // ReactDOM.render(<App2 id="Book"/>, document.getElementById('app1'));
 
 function Multi() {
+    function parentC() {
+        alert('parent Component')
+    }
+
     return(
-        <div >
+        <div>
             <App2 id="Book"/>
-            <Comment text={comment.text} author={comment.author}/>
+            <Comment text={comment.text} author={comment.author} fun={parentC}/>
             <App3 id="Book"/>
         </div>
     )
 
 }
 
+
+
 const comment = {
     text : 'gjjdfgjnd',
     author : {
         name: 'mansi',
         text: 'abc'
-    },
-};
+    },};
 
 ReactDOM.render(<Multi/>, document.getElementById('app'));
 
