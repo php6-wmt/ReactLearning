@@ -122,90 +122,79 @@ class App3 extends React.Component {
         );
     }
 
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         id: props.id,
-    //         changeLink : "fjhgdj",
-    //         homeMounted: true
-    //     }
-    // }
-    // //
-    // // componentWillMount() {
-    // //
-    // // }
-    // //
-    // // componentDidMount() {
-    // //
-    // // }
-    // //
-    // // componentWillReceiveProps(a) {
-    // //
-    // // }
-    // //
-    // // shouldComponentUpdate(p, s) {
-    // //
-    // // }
-    // //
-    // // componentWillUpdate(p, s) {
-    // //
-    // // }
-    // //
-    // // componentDidUpdate(p, s) {
-    // //
-    // // }
-    // //
-    // // componentWillUnmount() {
-    // //
-    // // }
-    // //
-    // // onChangeMount() {
-    // //     this.setState({
-    // //         homeMounted: !this.state.homeMounted
-    // //     })
-    // //
-    // // }
-    //
-    // // onChangeLink() {
-    // //     this.props.changeLink(this.state.id);
-    // //    // this.setState({
-    // //    //     id: "Book  Detail"
-    // //    // })
-    // // }
-    //
-    //
-    // onHeaderChange(event) {
-    //     this.setState({
-    //         id: event.target.value
-    //     })
-    // }
-    // render() {
-    //     let data = '';
-    //     if (this.state.homeMounted) {
-    //         data = <h1>{this.state.id}</h1>
-    //
-    //     }
-    //     return (
-    //
-    //         <div>
-    //             {data}
-    //             <input type="text" value={this.state.id} onChange={(event) => this.onHeaderChange(event)}/>
-    //             <button onClick={this.onChangeLink.bind(this)}> Change</button>
-    //             <hr/>
-    //             <button onClick={this.onChangeMount.bind(this)}>Change Header</button>
-    //         </div>
-    //
-    //        // {/*/!* <div>*/}
-    //        //      {/*<h3>{this.state.id}</h3>*/}
-    //        //      {/*<input type="text" value={this.state.changeLink} onChange={(event) => this.onHeaderChange(event)}/>*/}
-    //        //       {/*<button onClick={this.onChangeLink.bind(this)}> Change</button>*/}
-    //        //      {/*<button onClick={this.onChangeLink.bind(this)}> Change Header</button>*/}
-    //        //  {/*</div>*!/*/}
-    //
-    //
-    //     );
-    // }
 }
 
-export {Comment, App3};
+class Demo extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: props.id,
+            changeLink: "fjhgdj",
+            homeMounted: true
+        }
+    }
+
+    onChangeMount() {
+        this.setState({
+            homeMounted: !this.state.homeMounted
+        })
+
+    }
+
+    onChangeLink() {
+        this.setState({
+            id: "Book  Detail"
+        })
+    }
+
+
+    onHeaderChange(event) {
+        this.setState({
+            id: event.target.value
+        })
+    }
+
+    render() {
+        let data = '';
+        if (this.state.homeMounted) {
+            data = <h1>{this.state.id}</h1>
+
+        }
+        return (
+            <div>
+                <h3>{this.state.id}</h3>
+                <input type="text" value={this.state.id} onChange={(event) => this.onHeaderChange(event)}/>
+                <button onClick={this.onChangeLink.bind(this)}> Change</button>
+                <button onClick={this.onChangeLink.bind(this)}> Change Header</button>
+            </div>
+
+            // {/*<div>*/}
+            //     {/*{data}*/}
+            //     {/*<input type="text" value={this.state.id} onChange={(event) => this.onHeaderChange(event)}/>*/}
+            //     {/*<button onClick={this.onChangeLink.bind(this)}> Change</button>*/}
+            //     {/*<hr/>*/}
+            //     {/*<button onClick={this.onChangeMount.bind(this)}>Change Header</button>*/}
+            // {/*</div>*/}
+
+
+        );
+    }
+}
+
+class KeyDemo extends React.Component {
+    render() {
+        const numbers = this.props.number;
+
+        const listItems = numbers.map((number) =>
+            <li key={number.toString()}>{number *2}</li>
+        );
+    return(
+        <div>
+            <ul>{listItems}</ul>
+        </div>
+    )
+
+    }
+}
+
+export {Comment, App3, Demo, KeyDemo};

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App2 from './component/Header';
-import {Comment,App3} from './component/App';
+import {Comment,App3,Demo,KeyDemo} from './component/App';
 import * as serviceWorker from './serviceWorker';
 //
 // function Welcome(props) {
@@ -21,10 +21,13 @@ function Multi() {
             <App2 id="Book"/>
             <Comment text={comment.text} author={comment.author} fun={parentC}/>
             <App3 id="Book"/>
+            <Demo id="Book"/>
+            <KeyDemo  number={numbers}/>
         </div>
     )
 
 }
+const numbers = [1, 2, 3, 4, 5];
 
 
 
