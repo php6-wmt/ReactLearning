@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import FormDemo from './component/Form'
 import App2 from './component/Header';
 import {Comment,App3,Demo,KeyDemo} from './component/App';
 import * as serviceWorker from './serviceWorker';
@@ -18,11 +19,15 @@ function Multi() {
 
     return(
         <div>
-            <App2 id="Book"/>
-            <Comment text={comment.text} author={comment.author} fun={parentC}/>
-            <App3 id="Book"/>
-            <Demo id="Book"/>
-            <KeyDemo  number={numbers}/>
+            {/*<App2 id="Book"/>*/}
+            {/*<Comment text={comment.text} author={comment.author} fun={parentC}/>*/}
+            {/*<App3 id="Book"/>*/}
+            {/*<Demo id="Book"/>*/}
+            {/*<KeyDemo  number={numbers}/>*/}
+            <FormDemo/>
+
+
+
         </div>
     )
 
