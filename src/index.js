@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import FormDemo from './component/Form'
-import App2 from './component/Header';
-import {Comment,App3,Demo,KeyDemo} from './component/App';
+import CFConversion from './component/CFConversion'
 import * as serviceWorker from './serviceWorker';
 //
 // function Welcome(props) {
@@ -42,7 +41,7 @@ const comment = {
         name: 'mansi',
         text: 'abc'
     },};
-
-ReactDOM.render(<Multi/>, document.getElementById('app'));
+ReactDOM.render(<CFConversion/> , document.getElementById('CFConversion'))
+// ReactDOM.render(<Multi/>, document.getElementById('app'));
 
 serviceWorker.unregister();

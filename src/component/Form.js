@@ -4,34 +4,45 @@ class FormDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            name1: '',
             address: '',
             isGoing: true,
-            numberOfGuests: 2,
-            select : ''
+            numberOfGuests: '',
+            select :'coconut'
         }
 
     }
 
     changeData(e) {
+
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
         this.setState({
-            [e.target.name]: e.target.value
+            [name]: value
         })
     }
 
     onSubmitData(event) {
+
+        console.log('name : '+this.state.name1);
+        console.log('address : '+this.state.address);
+        console.log('isGoing : '+this.state.isGoing);
+        console.log('Guest : '+this.state.numberOfGuests);
+        console.log('Flavour : '+this.state.select);
         event.preventDefault()
     }
 
     render() {
         return (
-            <form onSubmit={this.onSubmitData}>
+            <form onSubmit={this.onSubmitData.bind(this)}>
 
                 <label>Name : </label>
-                <input type="text" value={this.state.name} name="name" onChange={e => this.changeData(e)} id="A"/>
+                <input type="text" value={this.state.name} name="name1" onChange={e => this.changeData(e)} id="A"/>
                 <hr/>
                 <label htmlFor="">Select Data: </label>
-                <select value={this.state.select} onChange={e => this.changeData(e)}>
+                <select value={this.state.select} name="select" onChange={e => this.changeData(e)}>
                     <option value="grapefruit">Grapefruit</option>
                     <option value="lime">Lime</option>
                     <option value="coconut">Coconut</option>
@@ -59,7 +70,7 @@ class FormDemo extends React.Component {
                 <hr/>
                 <label> Address : </label>
                 <textarea value={this.state.address} name="address" onChange={e => this.changeData(e)}
-                          id="B"></textarea>
+                          id="B">Address</textarea>
                 <hr/>
                 <input type="submit" value="Submit"/>
             </form>
@@ -67,5 +78,6 @@ class FormDemo extends React.Component {
     }
 
 }
+
 
 export default FormDemo
